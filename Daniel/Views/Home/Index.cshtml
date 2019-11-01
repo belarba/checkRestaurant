@@ -1,0 +1,15 @@
+﻿@model FormModel
+@{
+    ViewData["Title"] = "Check Restaurant";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <form asp-action="result" asp-controller="Home">
+        <p>Enter an hour to check with restaurants are open:</p>
+        <input asp-for="horario" type="time" id="horario" />
+        <input type="submit" value="Check!" />
+    </form>
+
+</div>
