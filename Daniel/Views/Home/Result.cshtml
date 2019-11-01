@@ -4,23 +4,32 @@
 }
 
 <div class="text-center">
-    @if(Model.Count == 0){
-    <p>There´s no restaurant open at that time :(</p>
-        }else{
-    <h1 class="display-4">Welcome</h1>
-
-
-    <p>restaurantes open at time:</p>
-
-
-
-    <table border="1" cellpadding="4">
-        @foreach (var row in Model)
+    @if (Model.Count == 0)
+    {
+        <p>There´s no restaurant open at that time :(</p>
+    }
+    else
+    {
+        <p>restaurantes open at time:</p>
+        <table cellpadding="4" align="center">
+            @{bool putcolor = true;}
+            @foreach (var row in Model)
             {
-        <tr>
-            <td>@row.Split(',')[0], from @row.Split(',')[1]</td>
-        </tr>
-            }
-    </table>
+                @if (putcolor)
+                {
+                    putcolor = false;
+                    <tr bgcolor="#e6e6e6">
+                        <td>@row.Split(',')[0], from @row.Split(',')[1]</td>
+                    </tr>
+                }
+                else
+                {
+                    putcolor = true;
+            <tr>
+                <td>@row.Split(',')[0], from @row.Split(',')[1]</td>
+            </tr>
         }
+            }
+        </table>
+    }
 </div>
